@@ -1,13 +1,10 @@
-<html>
-    <head>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+<html><head>
+    <script> src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <script>
+hljs.initHighlightingOnLoad();
+</script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/agate.min.css">
     <style>
-     body {
-  font-family: Arial;
-  color: blue;
-}
     .leftdiv
     {
        float: left;
@@ -17,29 +14,32 @@
          float: right;
           width: 600px;
           margin-right: 10px;
-          background-color:black;
-         
-         
         }
     </style>
   </head>
   <body>
     <div class="leftdiv">
-      <h1>hii</h1>
+      <h1>hi</h1>
       Enter Your Name<input type="text">
     </div>
     <div class="rightdiv">
-   <script>
- viewSource();
-function viewSource(){
-       var source = "<html>";
-       source += document.getElementsByTagName('html')[0].innerHTML;
-       source += "</html>";
-       source = source.replace(/</g, "<").replace(/>/g, ">");
-       source = "<pre>"+source+"</pre>";
-       document.writeln(source)
-      }
-     </script>
-</div>
-</body>
-</html>
+      
+          <script>
+showSource();
+function showSource(){
+    var source = "<html>";
+    source += document.getElementsByTagName('html')[0].innerHTML;
+    source += "</html>";
+    //now we need to escape the html special chars, javascript has escape
+    //but this does not do what we want
+    source = source.replace(/</g, "<").replace(/>/g, ">");
+    //now we add <pre> tags to preserve whitespace
+    source = "<pre>"+source+"</pre>";
+    //now open the window and set the source as the content
+    document.write(source);
+    sourceWindow.document.close(); //close the document for writing, not the window
+    //give source window focus
+    if(window.focus) sourceWindow.focus();
+     document.writeln(source);
+}
+</script></div></body></html>
